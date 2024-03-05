@@ -6,8 +6,8 @@ class ConfigController {
 
     private string $url;
     private array $urlArray;
-    private string $urlController;
-    private string $urlMetodo;
+    private string $urlController = '';
+    private string $urlMetodo = '';
 
     public function __construct() {
         //echo "Carregou ";
@@ -28,8 +28,14 @@ class ConfigController {
     }
 
     public function loadPage() {    
-        echo "Contollers/pagina";  
+          
+            $urlController =  ucwords($this->urlController);
+            echo "Controllers/pagina";  
+            $classLoad = "\\Sts\\Controllers\\"  . $urlController; 
+            echo $classLoad . "<br>";
+            var_dump($classLoad);
+    
+        }
     }
-}
 
-
+    
